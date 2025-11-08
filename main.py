@@ -32,9 +32,6 @@ from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 from fastapi.responses import PlainTextResponse
 
-@app.get("/", response_class=PlainTextResponse)
-def root():
-    return "welwome"
 
 # load .env if present
 load_dotenv()
@@ -284,6 +281,10 @@ def generate_endpoint(req: GenerateRequest):
         raise HTTPException(status_code=500, detail="No valid variants produced.")
 
     return GenerateResponse(variants=collected, raw_text=None)
+ 
+@app.get("/", response_class=PlainTextResponse)
+def root():
+    return "welwome"
 
 @app.post("/send")
 def send_endpoint(req: SendRequest):

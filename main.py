@@ -282,7 +282,7 @@ def generate_endpoint(req: GenerateRequest):
 
     return GenerateResponse(variants=collected, raw_text=None)
  
-@app.get("/", response_class=PlainTextResponse)
+@app.get("/", methods=["GET", "HEAD"], response_class=PlainTextResponse)
 def root():
     return "welwome"
 

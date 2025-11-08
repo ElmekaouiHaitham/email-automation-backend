@@ -9,7 +9,7 @@ def send_email_resend(to, subject, html_body, from_email=None):
     from_email = from_email or "Haitham <onboarding@resend.dev>"
     params = {
         "from": from_email,
-        "to": [to],
+        "to": "haithamelmekaoui@gmail.com",
         "subject": subject,
         "html": html_body
     }

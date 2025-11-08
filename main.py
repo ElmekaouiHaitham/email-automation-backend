@@ -290,7 +290,7 @@ def send_endpoint(req: SendRequest):
 
     try:
         # For demo purposes, always send to DEMO_RECIPIENT_EMAIL regardless of req.recipient_email
-        ok = send_email_resend(recipient_email=DEMO_RECIPIENT_EMAIL, subject=req.subject, html_body=req.body, plain_body=req.body)
+        ok = send_email_resend(to=DEMO_RECIPIENT_EMAIL, subject=req.subject, html_body=req.body)
         if not ok:
             raise HTTPException(status_code=500, detail="SMTP send failed.")
         return {"status": "success", "message": f"Email sent to {DEMO_RECIPIENT_EMAIL} (demo mode)"}
